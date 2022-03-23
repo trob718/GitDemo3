@@ -1,0 +1,739 @@
+1. Java installation 
+2. Configure Javea Path in system variables  
+3. Eclipse Installation   
+4. Create new Eclipse Project  
+	First create Project Folder in the Test Suite - Seleinium API in java language - 
+		Java class file = Test Case 
+
+5. Download Selenium jars 
+6  Congifure Selneim jars in project build path (Selenim is not a tool it is a jar file) - 
+This iwll allow you to run slein
+
+
+C:\Work\chromedriver.ex
+
+SET UP    
+Project and Java Clasees 
+1st create java porject and do everything inside project 
+fike - new - java peoject then give project name, project folder is automatcally created     
+Jave files auto loaded to the priject (jre files) 
+Source folder is where will add test cases in the project file test suite    
+Must creat JAVA Class is a selenuium teste case 
+Right clcik source folder -  new - class - name the case and select public statuc -void check box - finish 
+now reasdy to start to write selenium code   
+Add Jar files are recognized or connected to Selinium. Selinum is not a tool it is just JAR Files    
+  
+
+https://www.google.com/
+https://www.selenium.dev/selenium/docs/api/java/index.html?overview-tree.html
+
+Recap 
+For each an every browser there are diffecnt classes for example Chrome browser is a class  
+//How to know the tile of the page. The teiel of the page alwasys shows in the browser tab   
+
+JAVA Basics Concepts 1  - Required for Selenium        
+secton 25 and 26 advancced Java concepts to get more in depth   
+
+Java keywords (ie...Public class, public void, public static void ..etc...cant use in the code) 
+Code is written in blocks bewtewwn the curly braces
+Class - Class is the file where you actually write your java code/program. 
+; semi colon required to execute the code line
+// - to comment out lines for what the code is doing when it executes    
+
+
+JAVA methods:
+system.out.println("I am learning Java");
+
+
+JAVA Basics Concepts 2   - Required for Selenium     
+Declare variables   
+int a=2;
+int b=3;
+int sum = a+b;
+System.out.println("sum") - will not work;System.out.println(sum) - need to not include the quotes to not treat as string.
+it is treated as a defined variable and will pass the number or whatever the vaiable output.  
+System.out.println("Sum is"+ sum)- use the concatenate operater(+) to connect string and int output. 1:03 PM 2/22/2021
+
+
+JAVA Basics Concepts 3   - Required for Selenium     
+Define objects for a class  to access any particualar method you can use any sytax( methodobject.methodname 
+classobject.methodname
+methods m=new methods();  
+m.validateHeader();  
+
+
+//Implict casting   
+// byte > short > int > long > float > double 
+
+	//exokuct testing jcan occur only between compatible types 
+		int y= (int) x + 2;
+
+
+	String  x = "1"; - Need this many times because much of the balues in apps will be accepted as a sting so have to convert 
+		//casting incompatible types ie...String to integer
+		int y = Integer.parseInt(x) + 2; 
+
+Percent 
+import java.text.NumberFormat;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+		//format number in java  
+		
+		NumberFormat percent = NumberFormat.getPercentInstance();
+		String result = percent.format(0.1);
+		System.out.println(result);
+	
+	}
+
+}
+
+Another way to write percent 
+
+import java.text.NumberFormat;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+		//format number in java  
+				
+		String result = NumberFormat.getPercentInstance().format(0.1);
+		System.out.println(result);
+	
+	}
+
+}
+
+
+Reading data from user 
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+		Scanner scanner =new Scanner(System.in);
+		System.out.print("Age: ");
+		byte age = scanner.nextByte();//byte , double  float 
+		System.out.println("You are  " + age);
+	}
+
+}
+
+
+Mortgage Calculator   
+import java.text.NumberFormat;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+	 final byte MONTHS_IN_YEAR = 12; //declared constant 
+	 final byte PERCENT = 100;   
+
+	 Scanner scanner = new Scanner(System.in);
+	 System.out.print("Principal: ");
+	 int principal = scanner.nextInt();
+	 
+	
+	 System.out.print("Annual Interst Rate: ");
+	 float annualInterst = scanner.nextFloat();
+	 float monthlyInterest = annualInterst / PERCENT / MONTHS_IN_YEAR;
+	 
+	 System.out.print("Period (Years): ");
+	 byte years = scanner.nextByte();
+	 int numberOfPayments = years * MONTHS_IN_YEAR;
+	 
+	 double mortgage = principal
+			 	* (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
+			 	 /(Math.pow(1 + monthlyInterest, numberOfPayments) -1);
+			 	
+	String mortgageFormatted = NumberFormat.getCurrencyInstance().format(numberOfPayments);
+	System.out.println("Mortgage: " + mortgageFormatted);
+	}
+}
+
+
+
+
+Contol flow   
+== Equal in Java    
+!= Not equel in Java   
+> Greater than 
+< Less than 
+>= Greater than or equal to   
+<= Less than or equal to 
+&& AND operator in Java   
+|| OR operator in Java    
+!  NOT operator in Java 
+120_000 Underscore can be used to separate values like using a comma 
+Example 
+public class Main {
+
+	public static void main(String[] args) {
+		
+		boolean hasHighIncome = true;  
+		boolean hasGoodCredit = true;
+		boolean hasCriminalRecord = true;
+		boolean isEligible = (hasHighIncome || hasGoodCredit) && !hasCriminalRecord;
+		
+		System.out.println(isEligible);
+	 
+		
+			
+	}
+}
+
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		int income = 90_000;
+		boolean hasHighIncome = (income > 100_000);
+			
+
+		System.out.println(hasHighIncome);
+	
+	}
+}
+
+
+Code looks Novice   
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		int income = 99_000;
+		String className;
+		
+		if (income > 100_000)
+			className = "First";
+		
+		else 
+			className = "Economy";
+			
+		System.out.println(className);
+	
+	}
+}
+
+Update it by assingning an intial value to the variable   
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		int income = 120_000;
+		String className = "Economy";
+		
+		if (income > 100_000)
+			className = "First";
+			
+		System.out.println(className);
+	
+	}
+}
+
+Further simplificationof above code using the tertuary operater (? along with :) 
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		int income = 120_000;
+		String className = income > 100_000 ? "First" : "Economy";
+		
+		System.out.println(className);
+	
+	}
+}
+
+
+Usint the SWITCH STATMENT to simplify code (CASE, break, default:)
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String role = "admin";
+		if (role == "admin")
+			System.out.println("You are an admin");
+	
+		else if (role == "moderator")
+			System.out.println("You are a moderator");
+	
+		
+		else 
+			System.out.println("You are a guest");
+		
+	}
+}
+
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String role = "admin";
+		
+		switch (role) {
+		
+		  case "admin":
+			System.out.println("You are an admin");
+		  break;
+		  
+		  
+		  case "moderator":
+				System.out.println("You are an moderator");
+	      break;
+	      
+		  default:
+				System.out.println("You are a guest");
+		
+		}
+		
+			
+	}
+}
+
+MORE CODE 
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Number:  ");
+		int number = scanner.nextInt();
+		
+		if (number % 5 == 0 && number % 3 == 0)
+			System.out.println("FizzBuzz");
+		
+		else if (number % 5 == 0)
+			System.out.println("Fizz");
+		
+		else if (number % 3 == 0)
+			System.out.println("Buzz");
+			
+		else 
+			System.out.println(number);
+		}
+		
+			
+	 
+}
+
+
+FOR LOOP 
+
+	for(int i=0; i < 5; i++) - Thes are the trhee steps to set up for loop (inilize,  counter , increment )
+	for(int i=0; i > 0 ; i--)
+
+
+SYTAX to ask for input from a user 
+				System.out.print("Input: ");
+			Scanner scanner = new Scanner(System.in);
+			input = scanner.next(); //put this line in a vaariable 
+
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		
+		//Scanner scanner = new Scanner(System.in);
+		//System.out.print("depost_amount:  ");
+		//int depostit_amount = scanner.nextInt();
+		
+		//int account_balance = 100;
+		//float depositAmount = depostit_amount + account_balance;
+				
+		//int deposit_amount = 20 ;   
+		//int account_balance = 100-50;
+			
+		//System.out.println("Deposit_Amount"+  depositAmount);
+		//System.out.println("Acoount Balance"+ account_balance);
+			
+	
+				
+		}
+			
+			
+}
+
+
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		int accountBalance = 0; 
+		int depositAmount = 0;
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Deposit Amount:  ");
+		int depositAmount1= scanner.nextInt();
+		
+		
+		for(int i=0; i < 5; i++{
+			
+			if (depositAmount1 > 0)
+			 System.out.println("Deposit Amnount is "  + depositAmount1);
+		  	 System.out.println("Account Balance is "  + (accountBalance + depositAmount1));
+			
+		}
+			 //for(int i=0; i < 5; i++)
+		}
+			
+			
+}
+ 
+
+package terrancePractice;
+
+public class Dogs {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+			int age = 14;
+			
+			if(age >=20)
+				System.out.println("I am an adult. I'm grown!");		 
+			
+			else if (age < 20 && age > 12) 
+				System.out.println("I am still a teenager. Still growing.");
+			
+			else if (age < 13)
+				System.out.println("I am a young child..I want my mommy!");			
+	
+		}
+		
+	
+	}
+
+ 
+
+IF STATEMETS uses with any BOOLEAN expressions
+package terrancePractice;
+
+public class Dogs {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+			int age = 5;
+			
+			if(age >= 18) {
+				System.out.println("I am an adult");
+			
+			}
+			
+			else if(age >= 16 && age < 18) {
+				
+				System.out.println("I am almost an adult");	
+				
+			}
+							
+			else if (age < 16){
+					System.out.println("I am a child");					
+				}
+		
+			
+	}			
+ 
+}
+
+IF ONLY EVALUEATING ONLY ONE BOOLEAN EXPRESSION TO RETURN A VALUE. IF MULTIPLE ELSE THEN CANT USE TENARY OPERATIORS (?,:_
+package terrancePractice;
+
+public class Dogs {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+			int age = 17;
+			String message = age >= 18 ? 
+						"I am an adult" :  
+						"I am not an adult";
+			System.out.println(message);
+				
+	}			
+ 
+}
+
+
+ARRAYS
+package terrancePractice;
+
+public class Dogs {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String [] dogType = {"PitBull", "BullDog", "German Sheperd", "Maltese"};
+		
+			System.out.println(dogType[0]);
+			System.out.println(dogType[1]);
+			System.out.println(dogType[2]);
+			System.out.println(dogType[3]);	
+		}
+	{
+	
+		int [] numbers = {10, 20, 30, 40};
+				
+			System.out.println(numbers[0]);
+			System.out.println(numbers[1]);
+			System.out.println(numbers[2]);
+			System.out.println(numbers[3]);	
+	}
+				
+			
+	}
+	
+
+
+
+
+Only use SWITCH STWEMENTS when performing an IF conditon on one value. Complex comparison evaluatoors should not use a swith  
+
+package terrancePractice;
+
+public class Dogs {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+			String gender = "FEMALE";
+			
+			if (gender.equals("FEMALE")) {
+				
+			}else if(gender.equals("MALE")){
+					
+				
+			}else if (gender.equals("PREFER_NOT_SAY")) {
+						
+			}else  {		
+					
+					}
+ 
+							
+				
+			}
+				
+	}	
+
+Write the same code with Switch Statment code  
+
+	package terrancePractice;
+
+public class Dogs {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+			String gender = "MALE";
+			
+			if (gender.equals("FEMALE")) {
+							
+			}else if(gender.equals("MALE")){		
+					
+				
+			}else if (gender.equals("Unknown gender")) {
+				
+						
+			}else  {		
+					
+					}
+ 
+				switch (gender.toUpperCase()) {
+				
+				case "FEMALE":
+					System.out.println("I am a female");
+					break;
+					
+				case "MALE":  
+					System.out.println("I am a male");
+					break;
+					
+				case "PREFER_NOT_SAY":
+					System.out.println("Prefer not say"); 
+					break;
+				 default:
+					 System.out.println("Unknown gender");
+				}			
+				
+			}
+				
+	}			
+ 
+
+
+
+
+
+package terrancePractice;
+
+//Create a main public class 
+public class Dogs {
+		String dogBreed;
+		String dogColor;
+		
+ //Create a class constructor for the main class (method)
+		public Dogs(String breed, String color ) {
+			
+			
+			dogBreed = breed;
+			dogColor = color;
+		}
+		
+		//the constructor is called when the object is created 
+		public static void main(String[] args) {			
+			Dogs typeDog = new Dogs("Pit Bull", "Black");
+			System.out.println(typeDog.dogBreed + " " + typeDog.dogColor );
+		}
+ }
+
+	
+ONE DIMINISIONAL ARRAY  
+
+public class ArrayDemo {
+
+	public static void main(String[] args) {
+	
+		//One demensional array 
+		int nums[] = {8,12,76,54,99};
+					
+		 			
+		for(int i = 0;i < 5; i++)
+		{
+			
+			System.out.println(nums[i]);	
+		}
+		 		
+}
+
+}
+
+INHERITANCE  using "extends" keyword to fetch a feature from another classs. Each class calls or extends the previous class.
+parent, child, grandchild etc....
+
+class Calculator //Super class   
+{
+	public int add(int i, int j)
+	{
+		return i+j;
+	}
+
+}
+
+
+class CalcAdv extends Calculator //Sub class 
+{
+	
+	public int sub(int i, int j)	
+		
+	{
+		
+	return i-j;
+	
+	}
+}
+
+class CalcVeryAdv extends CalcAdv 
+{
+	public int mul(int i, int j)
+	
+	{
+		return i * j;
+		
+	}
+}
+
+public class InheritanceDemo {
+
+	public static void main(String[] args) {
+	
+		CalcVeryAdv c1 = new CalcVeryAdv();
+		int result1 = c1.add(5, 4);
+		int result2 = c1.sub(6, 3);
+		int result3 = c1.mul(6, 3);		
+				
+		System.out.println(result1);
+		System.out.println(result2);
+		System.out.println(result3);
+		
+	}
+
+}
+
+
+
+class Calculator
+{
+	public int add(int i, int j)
+	{
+		return i+j;
+	}
+
+}
+
+
+class CalcAdv extends Calculator
+{
+	
+	public int sub(int i, int j)	
+		
+	{
+		
+		
+	return i-j;
+	
+	}
+}
+
+class CalcVeryAdv extends CalcAdv 
+{
+	public int mul(int i, int j)
+	
+	{
+		return i * j;
+		
+	}
+}
+
+public class InheritanceDemo {
+
+	public static void main(String[] args) {
+	
+		CalcVeryAdv c1 = new CalcVeryAdv();
+		int result1 = c1.add(5, 4);
+		int result2 = c1.sub(6, 3);
+		int result3 = c1.mul(6, 3);		
+				
+		System.out.println(result1);
+		System.out.println(result2);
+		System.out.println(result3);
+		
+	}
+
+}
+
